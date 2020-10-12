@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CatalogoTiempos.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,22 @@ namespace CatalogoTiempos.Controllers
 {
     public class Catalogo_Tiempos_LaboralesController : Controller
     {
+        public void Agregar(string horario) {
+            Tiempos t = new Tiempos { TC_Horario = horario, TH_Duracion = 15 };
+            int res = t.agregarTiempos(t);
+        }
+        public void Eliminar() { }
+        public void Actualizar() { }
+        public void Consultar() { }
+
         // GET: Catalogo_Tiempos_Laborales
         public ActionResult Listar()
         {
             ViewBag.Message = "Catálogo de Tiempos Laborales";
+
+            Tiempos t = new Tiempos();
+            t.listarTiempos();
+
             return View();
         }
 

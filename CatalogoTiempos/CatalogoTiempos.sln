@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogoTiempos", "CatalogoTiempos\CatalogoTiempos.csproj", "{1E88CBD0-27EA-4CE3-A84A-B57D2A604FAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsUnitarios", "TestsUnitarios\TestsUnitarios.csproj", "{FAC2919D-1742-4414-988D-E0686D1A9FEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1E88CBD0-27EA-4CE3-A84A-B57D2A604FAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E88CBD0-27EA-4CE3-A84A-B57D2A604FAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E88CBD0-27EA-4CE3-A84A-B57D2A604FAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAC2919D-1742-4414-988D-E0686D1A9FEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAC2919D-1742-4414-988D-E0686D1A9FEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAC2919D-1742-4414-988D-E0686D1A9FEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAC2919D-1742-4414-988D-E0686D1A9FEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

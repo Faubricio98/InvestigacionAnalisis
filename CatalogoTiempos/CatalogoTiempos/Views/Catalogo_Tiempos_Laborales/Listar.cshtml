@@ -17,14 +17,16 @@
                 </div>
 
                 <div class="card-body">
-                    <div class="form-group d-flex justify-content-between">
-                        <label class="font-weight-normal" for="tipo">Tipo:</label>
-                        <input type="text" class="form-control form-control-sm" id="tiop" placeholder="Ingrese el tipo de tiempo" required>
-                    </div>
+                    <form asp-controller="Catalogo_Tiempos_Laborales" asp-action="Agregar" method="post">
+                        <div class="form-group d-flex justify-content-between">
+                            <label class="font-weight-normal" for="horario">Tipo:</label>
+                            <input type="text" class="form-control form-control-sm" id="horario" name="horario" placeholder="Ingrese el tipo de tiempo" required>
+                        </div>
 
-                    <div class="row justify-content-center mt-2">
-                        <button class="btn btn-primary btn-sm">Guardar</button>
-                    </div>
+                        <div class="row justify-content-center mt-2">
+                            <button class="btn btn-primary btn-sm" type="submit">Guardar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
