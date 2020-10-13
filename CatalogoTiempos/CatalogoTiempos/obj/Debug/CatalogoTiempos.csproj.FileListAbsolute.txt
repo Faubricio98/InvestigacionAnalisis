@@ -251,8 +251,8 @@ C:\Users\congr\source\repos\InvestigacionAnalisis\CatalogoTiempos\CatalogoTiempo
 C:\Users\congr\source\repos\InvestigacionAnalisis\CatalogoTiempos\CatalogoTiempos\bin\es\System.Web.WebPages.resources.dll
 C:\Users\congr\source\repos\InvestigacionAnalisis\CatalogoTiempos\CatalogoTiempos\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\congr\source\repos\InvestigacionAnalisis\CatalogoTiempos\CatalogoTiempos\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\congr\source\repos\InvestigacionAnalisis\CatalogoTiempos\CatalogoTiempos\obj\Debug\CatalogoTiempos.csprojAssemblyReference.cache
 C:\Users\congr\source\repos\InvestigacionAnalisis\CatalogoTiempos\CatalogoTiempos\obj\Debug\CatalogoTiempos.csproj.CoreCompileInputs.cache
 C:\Users\congr\source\repos\InvestigacionAnalisis\CatalogoTiempos\CatalogoTiempos\obj\Debug\CatalogoTiempos.csproj.CopyComplete
 C:\Users\congr\source\repos\InvestigacionAnalisis\CatalogoTiempos\CatalogoTiempos\obj\Debug\CatalogoTiempos.dll
 C:\Users\congr\source\repos\InvestigacionAnalisis\CatalogoTiempos\CatalogoTiempos\obj\Debug\CatalogoTiempos.pdb
+C:\Users\congr\source\repos\InvestigacionAnalisis\CatalogoTiempos\CatalogoTiempos\obj\Debug\CatalogoTiempos.csprojAssemblyReference.cache

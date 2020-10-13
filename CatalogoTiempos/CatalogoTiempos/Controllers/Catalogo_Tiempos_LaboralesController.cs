@@ -9,10 +9,30 @@ namespace CatalogoTiempos.Controllers
 {
     public class Catalogo_Tiempos_LaboralesController : Controller
     {
-        public void Agregar(string horario) {
-            Tiempos t = new Tiempos { TC_Horario = horario, TH_Duracion = 15 };
-            int res = t.agregarTiempos(t);
+        public ActionResult Agregar(String horario) {
+            Tiempos t = new Tiempos { TC_Horario = horario, TH_Duracion = "00:00:00" };
+
+            //primero debemos confirmar si el tiempo ya existe
+            Tiempos temp = t.consultarTiempo(t);
+            if (temp.TC_Horario == null){
+                int res = t.agregarTiempos(t);
+            }
+            else {
+                if (temp.TC_Horario.Equals(t.TC_Horario) && temp.TH_Duracion.Equals(t.TH_Duracion)){
+                    ViewBag.Message = "Catálogo de Tiempos Laborales ";
+                    ViewBag.Respuesta = "El registro de tiempo ya existe";
+                }else{
+                    int res = t.agregarTiempos(t);
+                }
+            }
+
+
+            ViewBag.Message = "Catálogo de Tiempos Laborales";
+            List<Tiempos> lista = new Tiempos().listarTiempos();
+            ViewBag.ListaTiempos = lista;
+            return View("Listar");
         }
+
         public void Eliminar() { }
         public void Actualizar() { }
         public void Consultar() { }
@@ -21,9 +41,9 @@ namespace CatalogoTiempos.Controllers
         public ActionResult Listar()
         {
             ViewBag.Message = "Catálogo de Tiempos Laborales";
-
-            Tiempos t = new Tiempos();
-            t.listarTiempos();
+            List<Tiempos> lista = new Tiempos().listarTiempos();
+            ViewBag.ListaTiempos = lista;
+            ViewBag.Respuesta = "";
 
             return View();
         }

@@ -49,6 +49,7 @@ function alertAdvertenciaEliminar() {
         reverseButtons: true
     }).then((result) => {
         if (result.value) {
+            //acá debo llamar al método para borrar los datos
             swalWithBootstrapButtons.fire(
                 'Eliminados',
                 'Los datos se eliminaron correctamente',

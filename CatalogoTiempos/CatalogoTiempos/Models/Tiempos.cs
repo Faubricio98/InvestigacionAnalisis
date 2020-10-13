@@ -9,12 +9,12 @@ namespace CatalogoTiempos.Models
     public class Tiempos
     {
         public string TC_Horario { set; get; }
-        public int TH_Duracion { set; get; }
+        public string TH_Duracion { set; get; }
 
         //retorna 1 si fue correcto, -1 si hubo un error en la base de datos, 0 si el registro ya existe
         public int agregarTiempos(Tiempos tiempos) {
             ConexionBD myCon = new ConexionBD();
-            return myCon.ejecutar($"exec sp_registrar_horario '{tiempos.TC_Horario}', {tiempos.TH_Duracion}");
+            return myCon.ejecutar($"exec sp_registrar_horario '{tiempos.TC_Horario}', '{tiempos.TH_Duracion}'");
         }
 
         //retorna 1 si fue correcto, -1 si hubo un error en la base de datos, 0 si el registro ya existe
@@ -27,7 +27,7 @@ namespace CatalogoTiempos.Models
         public int actualizarTiempos(Tiempos tiempos)
         {
             ConexionBD myCon = new ConexionBD();
-            return myCon.ejecutar($"exec sp_actualizar_horario '{tiempos.TC_Horario}', {tiempos.TH_Duracion}");
+            return myCon.ejecutar($"exec sp_actualizar_horario '{tiempos.TC_Horario}', '{tiempos.TH_Duracion}'");
         }
 
         public Tiempos consultarTiempo(Tiempos tiempos)
@@ -35,12 +35,12 @@ namespace CatalogoTiempos.Models
             ConexionBD myCon = new ConexionBD();
             Tiempos t = new Tiempos();
 
-            SqlDataReader dataReader = myCon.consultar($"exec sp_consultar_horario '{tiempos.TC_Horario}', {tiempos.TH_Duracion}");
+            SqlDataReader dataReader = myCon.consultar($"exec sp_consultar_horario '{tiempos.TC_Horario}', '{tiempos.TH_Duracion}'");
 
             while (dataReader.Read())
             {
                 t.TC_Horario = dataReader["TC_Horario"].ToString();
-                t.TH_Duracion = int.Parse(dataReader["TH_Duracion"].ToString());
+                t.TH_Duracion = dataReader["TH_Duracion"].ToString();
             }
 
             return t;
@@ -56,7 +56,7 @@ namespace CatalogoTiempos.Models
             {
                 Tiempos t = new Tiempos();
                 t.TC_Horario = dataReader["TC_Horario"].ToString();
-                t.TH_Duracion = int.Parse(dataReader["TH_Duracion"].ToString());
+                t.TH_Duracion = dataReader["TH_Duracion"].ToString();
                 lista.Add(t);
             }
 

@@ -12,7 +12,8 @@ namespace CatalogoTiempos.Models
         private SqlConnection cnn;
         public ConexionBD()
         {
-            this.cnn = new SqlConnection("Database=Manejo_Tiempos_Laborales;Server=163.178.107.10;user=laboratorios;password=KmZpo.2796");
+            //this.cnn = new SqlConnection("Database=Manejo_Tiempos_Laborales;Server=163.178.107.10;user=laboratorios;password=KmZpo.2796");
+            this.cnn = new SqlConnection("Database=Manejo_Tiempos_Laborales;Server=LAPTOP-S3M5REQ9\\SQLEXPRESS;integrated security = true");
         }
 
         public SqlDataReader consultar(string comando) {
@@ -20,13 +21,13 @@ namespace CatalogoTiempos.Models
 
             try
             {
-                cnn.Open();
+                this.cnn.Open();
                 SqlCommand cmd = new SqlCommand(comando, cnn);
                 dr = cmd.ExecuteReader();
             }
             catch
             {
-                cnn.Close();
+                this.cnn.Close();
             }
 
             return dr;
@@ -37,8 +38,8 @@ namespace CatalogoTiempos.Models
             int salida = 0;
             try
             {
-                cnn.Open();
-                SqlCommand cmd = new SqlCommand(comando, cnn);
+                this.cnn.Open();
+                SqlCommand cmd = new SqlCommand(comando, this.cnn);
                 cmd.ExecuteNonQuery();
                 salida = 1;
             }
