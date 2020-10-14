@@ -19,7 +19,6 @@ namespace CatalogoTiempos.Controllers
             }
             else {
                 if (temp.TC_Horario.Equals(t.TC_Horario) && temp.TH_Duracion.Equals(t.TH_Duracion)){
-                    ViewBag.Message = "Catálogo de Tiempos Laborales ";
                     ViewBag.Respuesta = "El registro de tiempo ya existe";
                 }else{
                     int res = t.agregarTiempos(t);
@@ -33,9 +32,41 @@ namespace CatalogoTiempos.Controllers
             return View("Listar");
         }
 
-        public void Eliminar() { }
-        public void Actualizar() { }
-        public void Consultar() { }
+        public int Eliminar(String horario) {
+            Tiempos temp = new Tiempos().consultarTiempo(new Tiempos { TC_Horario = horario, TH_Duracion = "00:00:00" });
+            if (temp.TC_Horario == null){
+                ViewBag.Respuesta = "El registro '" + horario + "' no existe";
+                return 0;
+            }else{
+                Tiempos t = new Tiempos();
+                t.TC_Horario = horario;
+                t.TH_Duracion = "00:00:00";
+                ViewBag.Respuesta = "El registro se eliminó correctamente";
+                return t.eliminarTiempos(horario);
+            }
+        }
+
+
+        public ActionResult Actualizar(String viejo, String nuevo) {
+
+            //confirmar que existe un registro con el nombre viejo
+            Tiempos temp = new Tiempos().consultarTiempo(new Tiempos {TC_Horario = viejo, TH_Duracion= "00:00:00" });
+            if (temp.TC_Horario == null){
+                ViewBag.Respuesta = "El registro '"+viejo+"' no existe";
+            }
+            else {
+                Tiempos t = new Tiempos();
+                t.TC_Horario = nuevo;
+                t.TH_Duracion = "00:00:00";
+                int res = t.actualizarTiempos(viejo, t);
+                ViewBag.Respuesta = "El registro se actualizó correctamente";
+            }
+
+            ViewBag.Message = "Catálogo de Tiempos Laborales";
+            List<Tiempos> lista = new Tiempos().listarTiempos();
+            ViewBag.ListaTiempos = lista;
+            return View("Listar");
+        }
 
         // GET: Catalogo_Tiempos_Laborales
         public ActionResult Listar()

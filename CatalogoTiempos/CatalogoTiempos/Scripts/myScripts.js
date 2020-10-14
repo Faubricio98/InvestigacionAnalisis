@@ -1,5 +1,6 @@
 ﻿
 
 function editMyModal(button) {
-    document.getElementById('tipoM').value = button.id;
+    document.getElementById('viejo').value = "";
+    document.getElementById('viejo').value = button.id;
 }

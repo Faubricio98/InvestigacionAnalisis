@@ -52,5 +52,23 @@ namespace CatalogoTiempos.Models
             return salida;
         }
 
+        public int executing(string comando) {
+            int salida = 0;
+            try {
+                this.cnn.Open();
+                SqlCommand cmd = new SqlCommand(comando, this.cnn);
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read()) {
+                    salida = int.Parse(dr["respuesta"].ToString());
+                }
+            }
+            catch (SqlException e) {
+                salida = 0;
+            }
+
+            return salida;
+        }
+
     }
 }

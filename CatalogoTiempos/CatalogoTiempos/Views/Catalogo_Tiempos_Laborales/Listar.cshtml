@@ -28,6 +28,7 @@
                         </div>
                     </form>
                     <span>@ViewBag.Respuesta</span>
+                    <span id="respuesta"></span>
                 </div>
             </div>
         </div>
@@ -65,7 +66,7 @@
                             <td>@temp.TC_Horario</td>
                             <td class="d-flex justify-content-center">
                                 <button id="@temp.TC_Horario" type="button" class="btn btn-success btn-sm" onclick="editMyModal(this)" data-toggle="modal" data-target="#modal-editar"><i class="fa fa-pen-square"></i> </button>
-                                <button class="btn btn-danger btn-sm" onclick="alertAdvertenciaEliminar()"><i class="fa fa-trash"></i> </button>
+                                <button id="@temp.TC_Horario" class="btn btn-danger btn-sm" onclick="alertAdvertenciaEliminarTiempos(this)"><i class="fa fa-trash"></i> </button>
                             </td>
                         </tr>
 
@@ -84,26 +85,34 @@
 <div class="modal fade" id="modal-editar">
     <div class="modal-dialog">
         <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Modificar tiempo laboral</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <div class="modal-header">
+                <h4 class="modal-title">Modificar tiempo laboral</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+                </button>
+            </div>
 
+            <form action="@Url.Action("Actualizar", "Catalogo_Tiempos_Laborales")" method="post">
                 <div class="modal-body">
                     <div class="form-group ">
-                        <label class="font-weight-normal" for="tipoM">Tipo:</label>
-                        <input type="text" class="form-control form-control-sm" id="tipoM" required>
+                        <label class="font-weight-normal" for="viejo">Nombre actual:</label>
+                        <input type="text" class="form-control form-control-sm" id="viejo" name="viejo" required>
+                    </div>
+
+                    <div class="form-group ">
+                        <label class="font-weight-normal" for="nuevo">Nuevo nombre:</label>
+                        <input type="text" class="form-control form-control-sm" id="nuevo" name="nuevo" required>
                     </div>
 
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                     <div>
-                        <button  class="btn btn-info" >Editar</button>
+                        <button class="btn btn-info" type="submit">Editar</button>
                     </div>
                 </div>
+            </form>
+
         </div>
     </div>
 </div>
